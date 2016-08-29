@@ -21,7 +21,12 @@ apk add --no-cache --virtual .build-deps zlib-dev openssl-dev $PHPIZE_DEPS && \
 # Installing PHP extensions
 apk update && apk add postgresql-dev && docker-php-ext-install pdo_pgsql && \
 docker-php-ext-install mbstring json && \
-pecl install mongodb zip && docker-php-ext-enable mongodb zip && \
+pecl install mongodb zip xdebug && docker-php-ext-enable mongodb zip xdebug && \
+
+# Installing composer
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+php composer-setup.php && mv composer.phar /bin/composer && \
+php -r "unlink('composer-setup.php');" && \
 
 # CleanUP
 apk del .build-deps && \
