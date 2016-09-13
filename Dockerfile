@@ -19,7 +19,7 @@ cp /build/php.ini /usr/local/etc/php && \
 apk add --no-cache --virtual .build-deps zlib-dev openssl-dev $PHPIZE_DEPS && \
 
 # Installing PHP extensions
-apk update && apk add postgresql-dev && docker-php-ext-install pdo_pgsql && \
+apk update && apk add postgresql-dev && docker-php-ext-install pdo_pgsql && docker-php-ext-install pdo_mysql && \
 docker-php-ext-install mbstring json && \
 pecl install mongodb zip xdebug && docker-php-ext-enable mongodb zip xdebug && \
 
