@@ -31,6 +31,9 @@ php -r "unlink('composer-setup.php');" && \
 # Installing nodejs and npm
 apk add nodejs && \
 
+# Installing python (need for node-sass)
+apk add python && \
+
 # CleanUP
 apk del .build-deps && \
 rm -rf /build
