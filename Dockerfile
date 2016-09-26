@@ -28,6 +28,9 @@ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
 php composer-setup.php && mv composer.phar /bin/composer && \
 php -r "unlink('composer-setup.php');" && \
 
+# Installing nodejs and npm
+apk add nodejs && \
+
 # CleanUP
 apk del .build-deps && \
 rm -rf /build
